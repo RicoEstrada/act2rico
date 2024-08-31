@@ -14,6 +14,7 @@ public class ActivityTwoClassTwo {
     public static void main (String[] args){
             
         Scanner scn = new Scanner(System.in);
+        
         System.out.println("size of Stack: ");
         int Size = scn.nextInt();
         ActivityTwoClassOne stack = new ActivityTwoClassOne(Size);
@@ -21,12 +22,9 @@ public class ActivityTwoClassTwo {
         System.out.println("Enter Element for the Stacks: ");
         stack.inputArray(scn);
 
-        
         System.out.println("Display Stack");
         stack.display();
         
-        
-       
         // Peek and bottom 
         System.out.println("PEEK: " + stack.peek());
         System.out.println("BOTTOM: " + stack.findbot());
@@ -51,6 +49,5 @@ public class ActivityTwoClassTwo {
         stack.display();
         
         
-        scn.close();
     }  
 }

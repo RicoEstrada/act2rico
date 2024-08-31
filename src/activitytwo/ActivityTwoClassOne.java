@@ -13,20 +13,20 @@ import java.util.Stack;
  */
 public class ActivityTwoClassOne {
     private int maxSize;
-    int top;
-    double[] StackArray;
-    Stack<Double> st = new Stack<>();
+    private int top;
+    private int[] StackArray;
+    
     
     public ActivityTwoClassOne(int Size){
         
         maxSize = Size;
-        this.StackArray = new double [maxSize];
-        this.top = -1;
+        StackArray = new int [maxSize];
+        top = -1;
         
         
     }
     //problem #1
-    public void push(double numVal){
+    public void push(int numVal){
         if (!isFull()){
             StackArray[++top] = numVal;
         }else {
@@ -73,14 +73,19 @@ public class ActivityTwoClassOne {
     
     //problem #5
     public void addstack(Scanner scn) {
-        System.out.println("Enter Elements to add  to the Stack: ");
-        for (int i = 0; i < maxSize ; i++) {
-            System.out.println("Enter Element " + (i + 1)+ ": ");
-            double element = scn.nextDouble();
-            push(element);
-            System.out.println("Stack is added in another Stack: " + element);
-            
+        System.out.println("Enter new Stake Size: ");
+        int newSize = scn.nextInt();
+        int[] newStackArray = new int[maxSize + newSize];
+        System.out.println("Enter your Elements");
+        for (int i = 0 ; i <= top ; i++){
+            newStackArray[i] =  StackArray[i];
         }
+        for (int i= 0 ; i< newSize; i++){
+            newStackArray[++top] = scn.nextInt();
+        }
+        maxSize +=  newSize;
+        StackArray = newStackArray;
+        
         
    
     }
@@ -88,14 +93,14 @@ public class ActivityTwoClassOne {
         System.out.println("Enter add: " + (top + 1) );
         for (int i = 0 ; i < maxSize ; i++){
         System.out.println("Enter Element " + (i + 1)+ ": ");
-        StackArray[i] =  scn.nextInt();
+        StackArray[i] = scn.nextInt();
         
         }
         top = maxSize -1;
     }
     //problem #3
     public void RemoveDuplicate(){
-        HashSet <Double> set = new HashSet<>();
+        HashSet <Integer> set = new HashSet<>();
         int index = 0;
         for (int i = 0 ; i <= top ; i++){
            if (set.add(StackArray[i])){
